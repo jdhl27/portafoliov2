@@ -78,30 +78,3 @@ import Projects from "../components/Projects.astro"
     </SectionContainer>
   </main>
 </Layout>
-
-<script>
-  import { onMount } from 'astro';
-
-  onMount(() => {
-    const sections = document.querySelectorAll('h2');
-
-    const addScrollListeners = () => {
-      sections.forEach((section) => {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('section-entering');
-            } else {
-              entry.target.classList.remove('section-entering');
-              entry.target.classList.add('section-leaving');
-            }
-          });
-        }, { threshold: 0.5 });
-
-        observer.observe(section);
-      });
-    };
-
-    addScrollListeners();
-  });
-</script>
