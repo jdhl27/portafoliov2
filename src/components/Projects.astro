@@ -1,0 +1,64 @@
+---
+import React from "./icons/React.astro"
+import JavaScript from "./icons/JavaScript.astro"
+
+const TAGS = {
+  REACT: {
+    name: "React",
+    class: "bg-black text-white",
+    icon: React,
+  },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "bg-black text-white",
+    icon: JavaScript,
+  },
+}
+const PROJECTS = [
+  {
+    title: "- Convertidor de AFND a AFD",
+    description:
+      "Convertir automatas finitos no determinista en determinista de una manera facil y rapida.",
+    link: "",
+    github: "",
+    image: "/projects/afnd.webp",
+    tags: [TAGS.REACT, TAGS.JAVASCRIPT],
+  },
+  {
+    title: "- Diappbetes",
+    description:
+      "Es un software que permite gestionar los datos de medición de la glucosa del paciente para un correcto control del tratamiento de la diabetes.",
+    link: "",
+    github: "",
+    image: "/projects/diappbetes.webp",
+    tags: [TAGS.REACT, TAGS.JAVASCRIPT],
+  },
+]
+---
+
+{
+  PROJECTS.map(({ image, title, description, tags }) => (
+    <article style="margin-bottom: 20px">
+      <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+      <p class="text-lg mb-4 text-pretty">{description}</p>
+      <ul class="flex gap-x-2 flex-row mb-2">
+        {tags.map((tag) => (
+          <li>
+            <span
+              class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+            >
+              <tag.icon class="size-4" />
+              {tag.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <img
+        loading="lazy"
+        class="rounded shadow-2xl shadow-white/10 aspect-video"
+        src={image}
+        alt={`Captura de pantalla del proyecto ${image}`}
+      />
+    </article>
+  ))
+}
