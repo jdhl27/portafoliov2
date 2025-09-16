@@ -7,4 +7,5 @@ export default defineConfig({
   integrations: [tailwind()],
   site: 'https://jdhl27.github.io',
   base: '/portafoliov2',
+  output: 'static'
 });
