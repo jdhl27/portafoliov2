@@ -34,9 +34,8 @@ jobs:
         run: npm run build
 
       - name: Upload dist folder
-        uses: actions/upload-artifact@v4  # ✅ Versión actual y funcional
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages
           path: ./dist
 
   deploy:
